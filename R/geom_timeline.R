@@ -1,27 +1,30 @@
-#' Module 2: Visualization Tools: Build a geom for ggplot2 called geom_timeline()
-#' for plotting a time line of earthquakes
-#' ranging from xmin to xmaxdates with a point for each earthquake.
+#' Module 2: Visualize the times at which earthquakes occur within certain countries
 #'
-#' @return A time line plot of certain earthquakes.
+#' @return Produce a time line plot of selected earthquakes.
 #'
-#' @details The data is downloaded and readed from NOAA website,
-#' \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
+#' @details The data to be used with this geom from NOAA website
 #'
 #' @inheritParams ggplot2::layer
-#' @param mapping The mappings created.
-#' @param data  The data need to display in this layer.
-#' @param stat  The statistical transformation to use on the data for this layer.
+#' @param mapping Create asthetics mapping.
+#' @param data  The data
+#' @param stat  The statistical transformation as a string.
 #' @param position Position adjustment
-#' @param show.legend logical. This layer be included in the legends or not
-#' @param inherit.aes Override the default aesthetic if false
-#' @param na.rm Missing values are removed with if false
-#' @param ... Other arguments passed on to [layer()].
+#' @param show.legend show the legends or not
+#' @param inherit.aes the default aesthetics
 #'
+#' @param na.rm If `FALSE`, the default, missing values are removed with
+#'   a warning. If `TRUE`, missing values are silently removed.
+#' @param ... Other arguments passed on to [layer()]. These are
+#'   often aesthetics, used to set an aesthetic to a fixed value, like
+#'   `colour = "red"` or `size = 3`. They may also be parameters
+#'   to the paired geom/stat.
+#'
+#'#' @section Aesthetics:
 #' \code{geom_timeline} understands the following aesthetics
 #'
 #' \itemize{
-#'   \item \code{x}          # Time variable (required)
-#'   \item \code{y}          # Stratification
+#'   \item \strong{\code{x}} # Time variable
+#'   \item \code{y}          # Factor indicating some stratification
 #'   \item \code{color}      # Color of border of elements
 #'   \item \code{shape}      # Shape
 #'   \item \code{size}       # Size
@@ -35,12 +38,13 @@
 #' @export
 #'
 #' @examples
-#' # The data need to be cleaned using the function eq_clean_data
+#' # The data must be cleaned using the function \code{eq_clean_data}, included in the package.
+#' # Aesthetics can be specified in the \code{ggplot} function or in \code{geom_timeline} geom function
 #' \dontrun{
 #' data <- readr::read_delim("signif.txt", delim = "\t")
 #' data <- eq_clean_data(data)
 #' data %>%
-#' dplyr::filter(COUNTRY == c("CANADA","USA") & lubridate::year(DATE) >= 2010) %>%
+#' dplyr::filter(COUNTRY == c("MEXICO","USA") & lubridate::year(DATE) >= 2010) %>%
 #' ggplot(aes(x=DATE,y=COUNTRY,color=TOTAL_DEATHS,size=EQ_PRIMARY)) +
 #' geom_timeline(alpha=.5) +
 #' theme(legend.position="bottom", legend.box="horizontal", plot.title=element_text(hjust=0.5)) +
@@ -59,7 +63,7 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
 
 #' GeomTimeline
 #'
-#' GeomTimeline Geom code
+#' GeomTimeline Geom coding
 #'
 #' @importFrom ggplot2 ggproto Geom aes draw_key_point
 #' @importFrom grid segmentsGrob gpar pointsGrob gList
