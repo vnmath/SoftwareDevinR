@@ -26,3 +26,6 @@ testthat::expect_that(clean_data %>%
 #' Test eq_location_clean function
 clean_data <- eq_location_clean(clean_data)
 testthat::expect_that(clean_data,testthat::is_a('data.frame'))
+clean_data <- eq_location_clean(clean_data)
+testthat::expect_that(clean_data,testthat::is_a('data.frame'))
+testthat::expect_that('LOCATION_NAME' %in% (colnames(clean_data)), testthat::is_true())
