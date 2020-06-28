@@ -1,15 +1,13 @@
-if(getRversion() >= '2.15.1')
-  utils::globalVariables(c("LOCATION_NAME","I_D","YEAR","MONTH","DAY","LATITUDE","LONGITUDE",
+utils::globalVariables(c("LOCATION_NAME","I_D","YEAR","MONTH","DAY","LATITUDE","LONGITUDE",
                            "EQ_PRIMARY","COUNTRY","STATE","TOTAL_DEATHS","DATE","YEAR4"))
-#' Module 1: Obtain and Clean the NOAA earthquake data
+#' Module1: Cleaning NOAA earthquake data
 #'
 #' @param datatoclean A data frame with raw data obtained from NOAA website
 #'
 #' @return A data frame with cleaned date, latitude and longitude numerical columns
 #'
-#' @details The function returns a date column and converts it to
-#'  the date class, converts LATITUDE and LONGITUDE columns to numeric class.
-#'
+#' @details The function returns a date column created by uniting the year, month, day and
+#' converting it to the Date class
 #' @examples
 #' \dontrun{
 #' data <- readr::read_delim("signif.txt", delim = "\t")
@@ -21,7 +19,6 @@ if(getRversion() >= '2.15.1')
 #' @importFrom lubridate year ymd
 #'
 #' @export
-
 eq_clean_data <- function(datatoclean) {
   clean_data <- datatoclean %>%
     dplyr::select(I_D, YEAR, MONTH, DAY, LATITUDE, LONGITUDE, LOCATION_NAME, EQ_PRIMARY, COUNTRY, STATE, TOTAL_DEATHS) %>%
@@ -47,7 +44,6 @@ eq_clean_data <- function(datatoclean) {
 #' @return A data frame with cleaned LOCATION_NAME column
 #'
 #' @details The function cleans the LOCATION_NAME column
-#' and converts names to title case .
 #'
 #' @examples
 #' \dontrun{
