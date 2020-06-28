@@ -2,9 +2,7 @@
 #' for plotting a time line of earthquakes
 #' ranging from xmin to xmaxdates with a point for each earthquake.
 #'
-#'The xaesthetic is a date and an optional y aesthetic is a factor indicating
-#'some stratification in which case multiple time lines will be plotted for
-#'each level of the factor (e.g. country).
+
 #'
 #' @return The geom \code{geom_timeline} used with the \code{ggplot} function
 #' to create a time line plot of selected earthquakes.

@@ -1,4 +1,4 @@
-#' maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
+#' This maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
 #' pop up window containing annotation data stored in a column of the data frame
 #'
 #' @param mapdata A data frame with data obtained from NOAA website
@@ -39,16 +39,20 @@ eq_map <- function(mapdata, annot_col = "DATE") {
                               stroke = FALSE, fillOpacity = 0.5)
 }
 
-#' More interesting pop-ups for the interactive map used with the eq_map() function
-#'
+#' Create a function called eq_create_label() that takes the dataset
+#' as an argument and creates an HTML label that can be used as
+#' the annotation text in the leaflet map.
 #' @param mapdata A cleaned data frame with data obtained from NOAA website
 #'
 #' @return An HTML label that can be used as the annotation text in the leaflet map.
 #'
-#' @details This function return a more interesting pop-ups for the interactive map created with the eq_map() function.
-#' The function is called before the eq_map() function and used the same cleaned data.
-#' The cleaning of the data frame is done with the eq_clean_data() and eq_location_clean() functions of this package.
-#' For each earthquake, the pop-up will show its "Location", "Total deaths" and "Magnitude".
+#' @details This function should put together a character string for
+#' each earthquake that will show the cleaned location (as cleaned by
+#' the eq_location_clean() function created in Module 1),
+#' the magnitude (EQ_PRIMARY), and the total number of deaths (TOTAL_DEATHS),
+#'  with boldface labels for each ("Location", "Total deaths", and "Magnitude").
+#'  If an earthquake is missing values for any of these,
+#' both the label and the value should be skipped for that element of the tag.
 #'
 #' @examples
 #' \dontrun{

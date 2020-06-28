@@ -1,20 +1,11 @@
-###############################################################################
-if(getRversion() >= '2.15.1')
-  utils::globalVariables(c("LOCATION_NAME","I_D","YEAR","MONTH","DAY","LATITUDE","LONGITUDE",
-                           "EQ_PRIMARY","COUNTRY","STATE","TOTAL_DEATHS","DATE","YEAR4"))
 #' Module 1: Obtain and Clean the NOAA earthquake data
 #'
 #' @param datatoclean A data frame with raw data obtained from NOAA website
 #'
 #' @return A data frame with cleaned date, latitude and longitude numerical columns
 #'
-#' @details After downloading and reading in the dataset from NOAA site,
-#' \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
-#' National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database.
-#' National Geophysical Data Center
-#' The function returns a date column created by uniting the year, month, day and
-#' converting it to the Date class and also converts LATITUDE and LONGITUDE columns
-#' to numeric class.
+#' @details The function returns a date column and converts it to
+#'  the date class, converts LATITUDE and LONGITUDE columns to numeric class.
 #'
 #' @examples
 #' \dontrun{
@@ -52,12 +43,8 @@ eq_clean_data <- function(datatoclean) {
 #'
 #' @return A data frame with cleaned LOCATION_NAME column
 #'
-#' @details After downloading and reading in the dataset from NOAA site,
-#' \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
-#' National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database.
-#' National Geophysical Data Center, NOAA. doi:10.7289/V5TD9V7K
-#' The function cleans the LOCATION_NAME column by stripping out the country name (including the colon)
-#' and converts names to title case (as opposed to all caps).
+#' @details The function cleans the LOCATION_NAME column
+#' and converts names to title case .
 #'
 #' @examples
 #' \dontrun{
