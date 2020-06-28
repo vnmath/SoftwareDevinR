@@ -2,8 +2,6 @@
 #' for plotting a time line of earthquakes
 #' ranging from xmin to xmaxdates with a point for each earthquake.
 #'
-
-#'
 #' @return A time line plot of certain earthquakes.
 #'
 #' @details The data is downloaded and readed from NOAA website,
