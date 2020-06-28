@@ -1,24 +1,14 @@
 Package: SoftwareDevinR
-Title: Capstone Software Development
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "Ha",
-           family = "Pham",
-           role = c("aut", "cre"))
-Description: NOAA Significant Earthquakes data analysis.
-License: GPL (>= 2)
+Type: Package
+Title: SoftwareDevinR Build Custom Geom ggplot element for describing mapping earthquakes
+Version: 0.1.0
+Imports: readr, dplyr, tidyr, stringr, lubridate, ggplot2, grid, leaflet
+Author: Ha Pham
+Maintainer: Ha Pham <dinhdong295@gmail.com>
+Description: This package provides custom-built Geom elements.
+License: GPL-2
 Encoding: UTF-8
-Imports: dplyr,
-    grid,
-    ggplot2,
-    leaflet,
-    lubridate,
-    tidyr
 LazyData: true
-Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
-Suggests: knitr,
-    rmarkdown,
-    testthat,
-    readr
+Suggests: knitr, rmarkdown, vdiffr, testthat
 VignetteBuilder: knitr
