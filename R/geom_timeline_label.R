@@ -20,14 +20,13 @@
 #' @param na.rm Missing values are removed with if false
 #' @param ... Other arguments passed on to [layer()].
 #'
-#' \code{geom_timeline_label} understands the following aesthetics (properties of the plot that can show certain elements of the data)
-#'  (required aesthetics are in bold):
+#' \code{geom_timeline_label} understands the following aesthetics
 #' \itemize{
-#'   \item \strong{\code{x}}     #Time variable
-#'   \item \strong{\code{label}} #Factor for adding annotations to the earthquake data
-#'   \item \code{y}              #Factor indicating some stratification
-#'   \item \code{n_max}          #number of earthquakes to subset according to their magnitude (EQ_PRIMARY)
-#'   \item \code{y_length}       #vertical line length to each data point
+#'   \item \strong{\code{x}}     # Time variable
+#'   \item \strong{\code{label}} # Annotations to the earthquake data
+#'   \item \code{y}              # Stratification
+#'   \item \code{n_max}          # number of earthquakes of subset corresponding to their magnitude (EQ_PRIMARY)
+#'   \item \code{y_length}       # vertical line length to each data point
 #' }
 #'
 #' @importFrom ggplot2 layer
@@ -47,10 +46,10 @@
 #' dplyr::filter(COUNTRY == c("CANADA","USA") & lubridate::year(DATE) >= 2010) %>%
 #' ggplot(aes(x=DATE,y=COUNTRY,color=TOTAL_DEATHS,size=EQ_PRIMARY)) +
 #' geom_timeline(alpha=.5) +
-#' geom_timelinelabel(aes(label=LOCATION_NAME),n_max=3) +
+#' geom_timelinelabel(aes(label=LOCATION_NAME),n_max=5) +
 #' theme(legend.position="bottom", legend.box="horizontal", plot.title=element_text(hjust=0.5)) +
-#' ggtitle("Earthquakes Visualization Tool") +
-#' labs(size = "Richter scale value", color = "# deaths")
+#' ggtitle("Earthquakes Visualization") +
+#' labs(size = "Richter scale", color = "# deaths")
 #' }
 geom_timelinelabel <- function(mapping = NULL, data = NULL, stat = "identity",
                                position = "identity", na.rm = FALSE, show.legend = NA,

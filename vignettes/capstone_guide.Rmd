@@ -1,5 +1,5 @@
 ---
-title: "Capstone Vignette"
+title: "Capstone Sofware Development in R Vignette"
 author: "Dong"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This is an R package to analyse the data  ["NOAA Significant Earthquake Database"](https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1).
+This is an R package to analyse the data  ["NOAA Significant Earthquake Database"](https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1) in Capstone Sofware Development in R.
 
 
 ## Capstone's functions:

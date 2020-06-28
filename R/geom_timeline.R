@@ -24,7 +24,7 @@
 #'
 #' \itemize{
 #'   \item \code{x}          # Time variable (required)
-#'   \item \code{y}          # Factor indicating some stratification
+#'   \item \code{y}          # Stratification
 #'   \item \code{color}      # Color of border of elements
 #'   \item \code{shape}      # Shape
 #'   \item \code{size}       # Size
