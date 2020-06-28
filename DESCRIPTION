@@ -5,11 +5,10 @@ Authors@R:
     person(given = "Ha",
            family = "Pham",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "dongdinh@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+License: MIT
 Encoding: UTF-8
 Imports: dplyr,
     grid,
