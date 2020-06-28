@@ -4,10 +4,8 @@ Version: 0.0.0.9000
 Authors@R: 
     person(given = "Ha",
            family = "Pham",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           role = c("aut", "cre")
+Description: NOAA Significant Earthquakes data analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports: dplyr,

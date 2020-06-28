@@ -4,8 +4,7 @@
 #'
 
 #'
-#' @return The geom \code{geom_timeline} used with the \code{ggplot} function
-#' to create a time line plot of selected earthquakes.
+#' @return A time line plot of certain earthquakes.
 #'
 #' @details The data is downloaded and readed from NOAA website,
 #' \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
@@ -38,7 +37,7 @@
 #' @export
 #'
 #' @examples
-#' The data need to be cleaned using the function \code{eq_clean_data}
+#' # The data need to be cleaned using the function eq_clean_data
 #' \dontrun{
 #' data <- readr::read_delim("signif.txt", delim = "\t")
 #' data <- eq_clean_data(data)
