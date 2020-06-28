@@ -1,4 +1,4 @@
-filename <- system.file("inst/data", "signif.txt", package="SoftwareDevinR")
+filename <- system.file("data", "signif.txt", package="SoftwareDevinR")
 data <- readr::read_delim(filename, delim = '\t')
 clean_data <- eq_clean_data(data)
 
