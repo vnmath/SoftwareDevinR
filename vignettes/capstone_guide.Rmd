@@ -1,0 +1,73 @@
+---
+title: "Capstone Vignette"
+author: "Dong"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{EQVT Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This is an R package to analyse the data  ["NOAA Significant Earthquake Database"](https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1).
+
+
+## Capstone's functions:
+  
+- `eq_clean_data` and `eq_location_clean` functions clean the NOAA data frame: 
+- `eq_map` function maps the earthquakes epicenters (LATITUDE/LONGITUDE) with the desired annotation
+- `eq_create_label` function that creates an HTML label for Location, Total deaths, and Magnitude in the leaflet map.
+- Two geoms that visualize the NOAA earthquakes dataset. The `geom_timeline` function visualizes the times, the magnitudes and the number of deaths corresponding to earthquakes within a given countries respectively, while the `geom_timelinelabel` adds annotations to the earthquake .
+     
+## Examples
+
+Download the data signif.txt from the NOAA website, put it to your working directory and transform it to a data frame using the `read_delim` function:
+  
+```{r eval = FALSE}
+library(readr)
+data <- readr::read_delim("signif.txt", delim = "\t")
+```
+
+
+Then clean the data with the functions `eq_clean_data` and `eq_location_clean`.
+
+```{r eval = FALSE}
+clean_data <- eq_clean_data(data)
+clean_data <- eq_location_clean(clean_data)
+```
+
+To map the earthquakes epicenters in Canada since 2000 and get their dates in annotation use the `eq_map` function.
+
+```{r eval = FALSE}
+clean_data %>%
+  dplyr::filter(COUNTRY == "CANADA" & lubridate::year(DATE) >= 2000) %>%
+  eq_map(annot_col = "DATE")
+```
+
+To get annotation the Location, Total deaths, and Magnitude of the earthquakes, use the `eq_create_label` function before the `eq_map` function.
+
+```{r eval = FALSE}
+clean_data %>%
+  dplyr::filter(COUNTRY == "CANADA" & lubridate::year(DATE) >= 2000) %>%
+  dplyr::mutate(popup_text = eq_create_label(.)) %>%
+  eq_map(annot_col = "poptext")
+```
+
+To visualize times, magnitudes of earthquakes in Canada and USA, we use the `geom_timeline` geom.
+
+```{r eval = FALSE}
+data %>%
+  dplyr::filter(COUNTRY == c("CANADA","USA") & lubridate::year(DATE) >= 2010) %>%
+  ggplot(aes(x=DATE,y=COUNTRY,color=TOTAL_DEATHS,size=EQ_PRIMARY)) +
+  geom_timeline(alpha=0.5) 
+```
+
+To add annotations to the earthquake data, we use `geom_timelinelabel` geom 
+
+```{r eval = FALSE}
+data %>%
+  dplyr::filter(COUNTRY == c("CANADA","USA") & lubridate::year(DATE) >= 2010) %>%
+  ggplot(aes(x=DATE,y=COUNTRY,color=TOTAL_DEATHS,size=EQ_PRIMARY)) +
+  geom_timeline(alpha=0.5) +
+  geom_timelinelabel(aes(label=LOCATION_NAME),n_max=5) 
+```
