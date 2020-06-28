@@ -4,9 +4,9 @@ Version: 0.0.0.9000
 Authors@R: 
     person(given = "Ha",
            family = "Pham",
-           role = c("aut", "cre")
+           role = c("aut", "cre"))
 Description: NOAA Significant Earthquakes data analysis.
-License: MIT + file LICENSE
+License: GPL (>= 2)
 Encoding: UTF-8
 Imports: dplyr,
     grid,
