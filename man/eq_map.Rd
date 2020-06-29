@@ -2,7 +2,7 @@
 % Please edit documentation in R/eq_map.R
 \name{eq_map}
 \alias{eq_map}
-\title{maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
+\title{This maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
 pop up window containing annotation data stored in a column of the data frame}
 \usage{
 eq_map(mapdata, annot_col = "DATE")
@@ -16,7 +16,7 @@ eq_map(mapdata, annot_col = "DATE")
 A map of the earthquakes epicenters and giving some annotations
 }
 \description{
-maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
+This maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
 pop up window containing annotation data stored in a column of the data frame
 }
 \details{

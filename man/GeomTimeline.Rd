@@ -11,6 +11,6 @@ An object of class \code{GeomTimeline} (inherits from \code{Geom}, \code{ggproto
 GeomTimeline
 }
 \description{
-GeomTimeline Geom code
+GeomTimeline Geom coding
 }
 \keyword{datasets}

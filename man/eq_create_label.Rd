@@ -2,7 +2,9 @@
 % Please edit documentation in R/eq_map.R
 \name{eq_create_label}
 \alias{eq_create_label}
-\title{More interesting pop-ups for the interactive map used with the eq_map() function}
+\title{Create a function called eq_create_label() that takes the dataset
+as an argument and creates an HTML label that can be used as
+the annotation text in the leaflet map.}
 \usage{
 eq_create_label(mapdata)
 }
@@ -13,20 +15,25 @@ eq_create_label(mapdata)
 An HTML label that can be used as the annotation text in the leaflet map.
 }
 \description{
-More interesting pop-ups for the interactive map used with the eq_map() function
+Create a function called eq_create_label() that takes the dataset
+as an argument and creates an HTML label that can be used as
+the annotation text in the leaflet map.
 }
 \details{
-This function return a more interesting pop-ups for the interactive map created with the eq_map() function.
-The function is called before the eq_map() function and used the same cleaned data.
-The cleaning of the data frame is done with the eq_clean_data() and eq_location_clean() functions of this package.
-For each earthquake, the pop-up will show its "Location", "Total deaths" and "Magnitude".
+This function should put together a character string for
+each earthquake that will show the cleaned location (as cleaned by
+the eq_location_clean() function created in Module 1),
+the magnitude (EQ_PRIMARY), and the total number of deaths (TOTAL_DEATHS),
+ with boldface labels for each ("Location", "Total deaths", and "Magnitude").
+ If an earthquake is missing values for any of these,
+both the label and the value should be skipped for that element of the tag.
 }
 \examples{
 \dontrun{
 readr::read_delim("signif.txt", delim = "\t") \%>\%
   eq_clean_data() \%>\%
   eq_location_clean() \%>\%
-  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) \%>\%
+  dplyr::filter(COUNTRY == "CANADA" & lubridate::year(DATE) >= 2000) \%>\%
   dplyr::mutate(popup_text = eq_create_label(.)) \%>\%
   eq_map(annot_col = "popup_text")
 }

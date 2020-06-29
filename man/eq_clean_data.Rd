@@ -2,7 +2,7 @@
 % Please edit documentation in R/eq_clean_data.R
 \name{eq_clean_data}
 \alias{eq_clean_data}
-\title{Module 1: Obtain and Clean the NOAA earthquake data}
+\title{Module1: Cleaning NOAA earthquake data}
 \usage{
 eq_clean_data(datatoclean)
 }
@@ -13,16 +13,11 @@ eq_clean_data(datatoclean)
 A data frame with cleaned date, latitude and longitude numerical columns
 }
 \description{
-Module 1: Obtain and Clean the NOAA earthquake data
+Module1: Cleaning NOAA earthquake data
 }
 \details{
-After downloading and reading in the dataset from NOAA site,
-\url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
-National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database.
-National Geophysical Data Center
 The function returns a date column created by uniting the year, month, day and
-converting it to the Date class and also converts LATITUDE and LONGITUDE columns
-to numeric class.
+converting it to the Date class
 }
 \examples{
 \dontrun{

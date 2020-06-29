@@ -2,9 +2,7 @@
 % Please edit documentation in R/geom_timeline.R
 \name{geom_timeline}
 \alias{geom_timeline}
-\title{Module 2: Visualization Tools: Build a geom for ggplot2 called geom_timeline()
-for plotting a time line of earthquakes
-ranging from xmin to xmaxdates with a point for each earthquake.}
+\title{Module 2: Visualize the times at which earthquakes occur within certain countries}
 \usage{
 geom_timeline(
   mapping = NULL,
@@ -18,55 +16,57 @@ geom_timeline(
 )
 }
 \arguments{
-\item{mapping}{The mappings created.}
+\item{mapping}{Create asthetics mapping.}
 
-\item{data}{The data need to display in this layer.}
+\item{data}{The data}
 
-\item{stat}{The statistical transformation to use on the data for this layer.}
+\item{stat}{The statistical transformation as a string.}
 
 \item{position}{Position adjustment}
 
-\item{na.rm}{Missing values are removed with if false}
+\item{na.rm}{If `FALSE`, the default, missing values are removed with
+a warning. If `TRUE`, missing values are silently removed.}
 
-\item{show.legend}{logical. This layer be included in the legends or not}
+\item{show.legend}{show the legends or not}
 
-\item{inherit.aes}{Override the default aesthetic if false}
+\item{inherit.aes}{the default aesthetics}
 
-\item{...}{Other arguments passed on to \code{\link[=layer]{layer()}}.
+\item{...}{Other arguments passed on to [layer()]. These are
+  often aesthetics, used to set an aesthetic to a fixed value, like
+  `colour = "red"` or `size = 3`. They may also be parameters
+  to the paired geom/stat.
 
+#' @section Aesthetics:
 \code{geom_timeline} understands the following aesthetics
 
 \itemize{
-\item \code{x}          # Time variable (required)
-\item \code{y}          # Factor indicating some stratification
-\item \code{color}      # Color of border of elements
-\item \code{shape}      # Shape
-\item \code{size}       # Size
-\item \code{alpha}      # Transparency (1: opaque; 0: transparent)
-\item \code{fill}       # Color of inside of elements
-\item \code{stroke}     # Stroke
+  \item \strong{\code{x}} # Time variable
+  \item \code{y}          # Factor indicating some stratification
+  \item \code{color}      # Color of border of elements
+  \item \code{shape}      # Shape
+  \item \code{size}       # Size
+  \item \code{alpha}      # Transparency (1: opaque; 0: transparent)
+  \item \code{fill}       # Color of inside of elements
+  \item \code{stroke}     # Stroke
 }}
 }
 \value{
-The geom \code{geom_timeline} used with the \code{ggplot} function
-to create a time line plot of selected earthquakes.
+Produce a time line plot of selected earthquakes.
 }
 \description{
-The xaesthetic is a date and an optional y aesthetic is a factor indicating
-some stratification in which case multiple time lines will be plotted for
-each level of the factor (e.g. country).
+Module 2: Visualize the times at which earthquakes occur within certain countries
 }
 \details{
-The data is downloaded and readed from NOAA website,
-\url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
+The data to be used with this geom from NOAA website
 }
 \examples{
-The data need to be cleaned using the function \code{eq_clean_data}
+# The data must be cleaned using the function \code{eq_clean_data}, included in the package.
+# Aesthetics can be specified in the \code{ggplot} function or in \code{geom_timeline} geom function
 \dontrun{
 data <- readr::read_delim("signif.txt", delim = "\t")
 data <- eq_clean_data(data)
 data \%>\%
-dplyr::filter(COUNTRY == c("CANADA","USA") & lubridate::year(DATE) >= 2010) \%>\%
+dplyr::filter(COUNTRY == c("MEXICO","USA") & lubridate::year(DATE) >= 2010) \%>\%
 ggplot(aes(x=DATE,y=COUNTRY,color=TOTAL_DEATHS,size=EQ_PRIMARY)) +
 geom_timeline(alpha=.5) +
 theme(legend.position="bottom", legend.box="horizontal", plot.title=element_text(hjust=0.5)) +

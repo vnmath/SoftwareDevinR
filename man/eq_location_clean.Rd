@@ -16,12 +16,7 @@ A data frame with cleaned LOCATION_NAME column
 Cleaning NOAA earthquake data location values
 }
 \details{
-After downloading and reading in the dataset from NOAA site,
-\url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
-National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database.
-National Geophysical Data Center, NOAA. doi:10.7289/V5TD9V7K
-The function cleans the LOCATION_NAME column by stripping out the country name (including the colon)
-and converts names to title case (as opposed to all caps).
+The function cleans the LOCATION_NAME column
 }
 \examples{
 \dontrun{
