@@ -12,15 +12,11 @@
 #' @param show.legend show the legends or not
 #' @param inherit.aes the default aesthetics
 #'
-#' @param na.rm If `FALSE`, the default, missing values are removed with
-#'   a warning. If `TRUE`, missing values are silently removed.
-#' @param ... Other arguments passed on to [layer()]. These are
-#'   often aesthetics, used to set an aesthetic to a fixed value, like
-#'   `colour = "red"` or `size = 3`. They may also be parameters
-#'   to the paired geom/stat.
+#' @param na.rm  Missing value
+#' @param ... Other parameters
 #'
 #'#' @section Aesthetics:
-#' \code{geom_timeline} understands the following aesthetics
+#' \code{geom_timeline} has the following aesthetics
 #'
 #' \itemize{
 #'   \item \strong{\code{x}} # Time variable
@@ -38,8 +34,7 @@
 #' @export
 #'
 #' @examples
-#' # The data must be cleaned using the function \code{eq_clean_data}, included in the package.
-#' # Aesthetics can be specified in the \code{ggplot} function or in \code{geom_timeline} geom function
+#' # The data must be cleaned using the function \code{eq_clean_data}
 #' \dontrun{
 #' data <- readr::read_delim("signif.txt", delim = "\t")
 #' data <- eq_clean_data(data)
@@ -61,9 +56,8 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "identity",
   )
 }
 
-#' GeomTimeline
-#'
-#' GeomTimeline Geom coding
+
+#' GeomTimeline Geom
 #'
 #' @importFrom ggplot2 ggproto Geom aes draw_key_point
 #' @importFrom grid segmentsGrob gpar pointsGrob gList

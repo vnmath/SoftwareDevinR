@@ -1,10 +1,10 @@
 ---
-title: "Capstone Sofware Development in R Vignette"
+title: "Capstone Sofware Development in R Introduction"
 author: "Dong"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{SoftwareDevinR Vignette}
+  %\VignetteIndexEntry{SoftwareDevinR Introduction}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

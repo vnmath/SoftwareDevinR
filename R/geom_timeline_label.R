@@ -4,11 +4,9 @@
 #'to subset to n_max number of earthquakes, where we take the n_max largest (by magnitude) earthquakes.
 #'Aesthetics are x, which is the date of the earthquake
 #'and label which takes the column name from which annotations will be obtained.
-#' @return The geom \code{geom_timeline_label} used with the \code{ggplot} function
-#' and the \code{geom_timeline} geom, add annotations to the n_max largest (by magnitude) earthquakes.
+#' @return The geom add annotations to the n_max largest magnitude earthquakes.
 #'
-#' @details The data downloaded and readed from
-#' \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
+#' @details The data downloaded from \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
 #'
 #' @inheritParams ggplot2::layer
 #' @param mapping The mappings created.
@@ -34,10 +32,7 @@
 #' @export
 #'
 #' @examples
-#' # The data must be cleaned using the function \code{eq_clean_data}, included in the package.
-#' # The LOCATION_NAME colomn of the data must be cleaned using the function \code{eq_location_clean},
-#' # included in the package.
-#' # Aesthetics can be specified in the \code{ggplot} function or in \code{geom_timeline} geom function
+#' # The data must be cleaned using the function \code{eq_clean_data}
 #' \dontrun{
 #' data <- readr::read_delim("signif.txt", delim = "\t")
 #' data <- eq_clean_data(data)
