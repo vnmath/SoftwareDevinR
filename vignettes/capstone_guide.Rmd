@@ -4,7 +4,7 @@ author: "Dong"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{EQVT Vignette}
+  %\VignetteIndexEntry{SoftwareDevinR Vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
