@@ -1,4 +1,4 @@
-#' This maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
+#' Module 1: This maps the epicenters (LATITUDE/LONGITUDE) and annotates each point with in
 #' pop up window containing annotation data stored in a column of the data frame
 #'
 #' @param mapdata A data frame with data obtained from NOAA website
@@ -6,15 +6,9 @@
 #'
 #' @return A map of the earthquakes epicenters and giving some annotations
 #'
-#' @details After downloading, reading and cleaning the dataset from NOAA site,
-#' \url{https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1}.
-#' National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database.
-#' National Geophysical Data Center, NOAA.
-#' The cleaning of the data frame is done with the eq_clean_data() function of this package.
+#' @details The cleaning of the data frame is done with the eq_clean_data() function of this package.
 #' The function return a map of the earthquakes epicenters (LATITUDE/LONGITUDE) and annotates each point with
 #' in pop up window containing annotation data stored in a column of the cleaned data frame.
-#' The user is able to choose which column is used for the annotation in the pop-up with this function
-#' by using the argument named "annot_col". If the "annot_col" argument is not used, then the value of the "DATE" column is used.
 #' On the map, each earthquake is shown with a circle, and the radius of the circle
 #' is proportional to the earthquake's magnitude (EQ_PRIMARY).
 #'
@@ -40,19 +34,13 @@ eq_map <- function(mapdata, annot_col = "DATE") {
 }
 
 #' Create a function called eq_create_label() that takes the dataset
-#' as an argument and creates an HTML label that can be used as
-#' the annotation text in the leaflet map.
-#' @param mapdata A cleaned data frame with data obtained from NOAA website
+#' as an argument and creates an HTML label in the leaflet map.
+#' @param mapdata A cleaned data frame from NOAA website
 #'
-#' @return An HTML label that can be used as the annotation text in the leaflet map.
+#' @return An HTML label in the leaflet map.
 #'
 #' @details This function should put together a character string for
-#' each earthquake that will show the cleaned location (as cleaned by
-#' the eq_location_clean() function created in Module 1),
-#' the magnitude (EQ_PRIMARY), and the total number of deaths (TOTAL_DEATHS),
-#'  with boldface labels for each ("Location", "Total deaths", and "Magnitude").
-#'  If an earthquake is missing values for any of these,
-#' both the label and the value should be skipped for that element of the tag.
+#' each earthquake that will show the cleaned location
 #'
 #' @examples
 #' \dontrun{
